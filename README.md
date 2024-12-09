@@ -255,6 +255,7 @@ Target (Type, Method, Field)
 * Что такое бин? xml объявление, @Bean, @Component, @ComponentScan
 * Инжект @Autowired, через конструктор
 * Циклическая зависимость бинов BeanCurrentlyInCreationException, как избежать? архитектура / lazy / не через конструктор(сеттер)
+* @Conditional
 
 ## Конктекст
 * Configuration
@@ -281,6 +282,7 @@ Target (Type, Method, Field)
 ## SpringBoot
 * Автоконфигурация
 * Стартеры
+* Test Container
 
 ## Выполнение запросов
 * Dispatcher servlet, определение контроллера, контроллер, view resolver, view
@@ -303,13 +305,16 @@ Target (Type, Method, Field)
 * Связи
 * проблемы Lazy/Eager для list
 * проблема N+1 запроса
+* EntityGraph
+* Иерархия сущностей в hibernate
 
 # SQL
 * Синтаксис, назначение
-* ACID
+* CAP, ACID
 * having и where
-* что такое индекс?
+* что такое индекс? какие индексы существуют, какие когда лучше работают?
 * group by
+* Партицирование
 
 # REST
 * Соглашение о путях
@@ -322,6 +327,16 @@ Target (Type, Method, Field)
 * Как отправляется форма? url-form-encoded
 * json
 * jwt, никаких сессий
+
+## SOAP
+
+## Spok Framework
+
+## OAuth, OpenID, SSO
+
+## jOOQ
+
+## Consul Istio
 
 # Инструменты
 * Docker, Dockerfile, Docker Compose
@@ -349,3 +364,6 @@ Target (Type, Method, Field)
 * Может ли интерфейс быть final? нет
 * Как сделать класс, экземпляр которого нельзя создать? private конструктор
 * Можно ли в java сделать pointers? ссылки, как в cpp? нет
+* Сколько весит ArrayList из 10 элементов? 80 байт, т.к. хранит только ссылки
+* Всегда ли можно перестроить бакет HashMap из списка в дерево? Нет, только если элементы реализуют Comparable
+* Сколько методов может быть в функциональном интерфейсе? Сколько угодно, но только один абстрактный
