@@ -153,6 +153,7 @@ Target (Type, Method, Field)
 ### Как использовать Enum как ключ map?
 EnumMap class
 
+## Раздел "Java Collections"
 ### Объясните разницу iterable и iterator
 Iterable - то, что может оботи iterator.
 Iterator - тот, кто обходит Iterable.
@@ -200,90 +201,88 @@ Iterator - тот, кто обходит Iterable.
 
 ### Как происходит расширение ArrayList?
 
-## Многопоточка
-* wait, notify, notifyAll
-* synchronized
-* !!! JMM
-* Callable, Runnable и Thread
-* Жизненный цикл потока
-* Daemon потоки
-* Thread pool (зачем? переиспользовать потоки, убивать дорого)
-* Интерфейсы Executor и ExecutorService
-* !!! Утечки памяти
-* !!! volatile
-* Атомарные типы данных, обёртки
+### Что такое Diamond operator, Wildcard?
 
-## Stream API
-* Что такое стримы? Как работают? К чему применяются? Откуда лямбды? Функциональщина
-* Типы операций: конвейерные, терминальные
-* Filter, Map, FlatMap, Peek, Sorted
-* collect, forEach, count, reduce, findFirst, anyMatch
-* Коллекторы
-* Optional
-
-## Generics
-* Diamond operator
+### Что такое Ковариантность, контравариантность и инвариантность?
 * Ковариантность: <? extends T>
-* Wildcard <?> то же самое <? extends Object>
 * Контрвариантность: <? super T>
 * Инвариатность: < T >
-* Есть ли generics в runtime? (нет, т.к. обратная совместимость)
-* Кто разбирается с правильностью операций? Compiler
 
-## Exceptions
-* Иерархия исключений
+### Есть ли generics в runtime? 
+Нет, т.к. обратная совместимость
+
+### Кто разбирается с правильностью операций? 
+Compiler
+
+## Раздел "Java Concurrency"
+
+### Расскажите про основные методы многопоточности: wait, notify, notifyAll
+
+### Как используется ключевое слово synchronized? Что такое монитор блокировки? Что будет являться монитором при синхронизации в блоке, в нестатическом методе, в статическом методе?
+
+### Что такое проблема Dead-lock? Что такое проблема Data-race?
+
+### Процесс и поток. Взаимодействие потоков в JMM. Happens-before.
+
+### Расскажите про Callable, Runnable и Thread
+
+### Объясните все этапы жизненного цикла потока
+
+### Что такое Daemon-потоки? Какие существуют особенности в их поведении?
+
+### Зачем нужны Executor и ExecutorService?
+
+### Как можно получиь утечку памяти в java приложении?
+
+### Зачем нужно ключевое слово volatile? Когда оно может помочь, а когда его функционала не хватит для решения задачи?
+
+### Что такое CAS-алгоритмы? Расскажите про атомарные типы данных
+
+## Раздел "Java Stream API"
+### Типы операций: конвейерные, терминальные
+
+### В какой момент выполнится стрим?
+Только в момент вызова терминальной операции, ведь стримы - ленивые
+
+### Когда не выполнится Peek?
+
+## Раздел "Java Exceptions"
+### Иерархия исключений
 ![Ответ](https://fuzeservers.ru/wp-content/uploads/e/f/7/ef79d4a747c25ed5d44c345f6d5bcfde.png)
-* Проверяемые, непроверяемые
-* try/catch, multi-catch, несколько catch подряд
-* throw и throws
 
-## Тесты
-* JUnit, принцип работы
+### Проверяемые, непроверяемые исключения - как понимать, как использовать, как создать?
+
+### В чём разница try/catch, multi-catch, несколько catch подряд?
+
+### В чём разница throw и throws?
+
+## Раздел "Тестирование"
+### Расскажите про JUnit, его принцип работы
 * @Test, @Before, @After, @BeforeAll, @AfterAll
 * assert, assertThat, assertEquals, fail
 
-## Сериализация и десериализация
-* Как пометить переменную, которая не должна сериализоваться - @Transient
-
-## IO
-* Reader/Writer, надстройки
-
-## Три(или четыре) кита ооп
+## Раздел "Теория"
+### Три(или четыре) кита ооп
 * Инкапсуляция
 * Наследование (сколько может быть родителей? а как реализовать множественное наследование? восходящее и нисходящее преобразования)
 * Полиморфизм: один интерфейс - множество реализаций
 * Абстракция
 * Я являюсь и я имею
+* А почему изоморфизм не здесь?
 
-## SOLID
+### SOLID
 * Single Responsibility (не делай god object)
 * Open-closed
 * Liskov substitution
 * Interface segregation
 * dependency injection
 
-## Другие принципы хорошего кода
+### Другие принципы хорошего кода
 * KISS (keep it simple, stupid)
 * DRY (dont repeat yourself)
 * YAGNI (You Aren’t Gonna Need It)
 
-# Spring Framework
-* Что такое IoC контейнер, DI?
-
-## Bean
-* Что такое бин? xml объявление, @Bean, @Component, @ComponentScan
-* Инжект @Autowired, через конструктор
-* Циклическая зависимость бинов BeanCurrentlyInCreationException, как избежать? архитектура / lazy / не через конструктор(сеттер)
-* @Conditional
-
-## Конктекст
-* Configuration
-
-## Scope
-* Что такое scope? область жизни бина
-* Основные scopes: singleton (по умолчанию), prototype, request, session, application, websocket
-
-## Паттерны проектирования
+### Паттерны проектирования
 * Builder
 * Factory method, factory, abstract factory
 * Proxy
@@ -291,7 +290,16 @@ Iterator - тот, кто обходит Iterable.
 * Service locator
 * Singletone
 
-## Transactional
+## Раздел "Spring Framework"
+* Что такое IoC контейнер, DI?
+* Что такое бин? xml объявление, @Bean, @Component, @ComponentScan
+* Инжект @Autowired, через конструктор
+* Циклическая зависимость бинов BeanCurrentlyInCreationException, как избежать? архитектура / lazy / не через конструктор(сеттер)
+* @Conditional
+* @Configuration
+* Что такое scope? область жизни бина
+* Основные scopes: singleton (по умолчанию), prototype, request, session, application, websocket
+* Transactional
 
 ## AOP
 * Зачем?
@@ -386,3 +394,4 @@ Iterator - тот, кто обходит Iterable.
 * Сколько весит ArrayList из 10 элементов? 80 байт, т.к. хранит только ссылки
 * Всегда ли можно перестроить бакет HashMap из списка в дерево? Нет, только если элементы реализуют Comparable
 * Сколько методов может быть в функциональном интерфейсе? Сколько угодно, но только один абстрактный
+* Как пометить переменную, которая не должна сериализоваться - @Transient
